@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  {% for post in posts %}
+    <article class="post">
+      <h2>{{ post.title }}</h2>
+      <span class="published-date">published: {{ post.published_date|date:"d-m-Y" }}</span>
+      <div class="post-text">
+        <p class="excerpt">{{ post.text|linebreaksbr|truncatewords:30 }}</p>
+        <p class="full-text">{{ post.text|linebreaksbr }}</p>
+      </div>
+    </article>
+  {% empty %}
+    <p>Trenutno ni objav.</p>
+  {% endfor %}
+{% endblock %}

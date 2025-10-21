@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>BLOG</title> <!-- Zavihek -->
+
+    <!-- ✅ Favicon (tvoja ikona) -->
+    <link rel="icon" type="image/jpeg" href="{% static 'images/favicon.jpg' %}" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet" />
+
+    <!-- ✅ CSS stil -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        header {
+            background-color: #f90;
+            padding: 30px 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.8rem;
+            margin: 0;
+            color: #959595; /* ✅ barva naslova */
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        article {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        article h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 0;
+        }
+
+        article p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .published-date {
+            color: #999;
+            font-size: 0.8rem;
+            float: right;
+            margin-top: -30px;
+        }
+
+        /* Hover efekt za prikaz celotne objave */
+        .post-text p {
+            transition: all 0.4s ease-in-out;
+            overflow: hidden;
+            max-height: 120px;
+        }
+
+        .post-text .full-text {
+            display: none;
+            max-height: 1000px;
+        }
+
+        .post:hover .excerpt {
+            display: none;
+        }
+
+        .post:hover .full-text {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Jan's blog</h1>
+</header>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
